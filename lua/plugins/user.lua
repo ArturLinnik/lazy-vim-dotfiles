@@ -7,18 +7,19 @@ return {
   { "folke/tokyonight.nvim" },
 
   -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight",
-    },
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "tokyonight",
+  --   },
+  -- },
   {
     "L3MON4D3/LuaSnip",
     keys = function()
       return {}
     end,
   },
+
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
@@ -62,18 +63,21 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<CR>"] = cmp.config.disable,
       })
     end,
   },
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  -- { import = "lazyvim.plugins.extras.lang.typescript" },
 
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      highlight = { enable = true },
+      indent = { enable = true },
       ensure_installed = {
         "bash",
         "html",
@@ -91,6 +95,8 @@ return {
         "yaml",
         "vue",
         "css",
+        "prisma",
+        "astro",
       },
     },
   },
